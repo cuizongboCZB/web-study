@@ -1,6 +1,6 @@
 
 
-  `jlk
+  ```jlk
 const q1 = new Promise((resolve,reject)=>{
     //    resolve("成功1数据");
        reject("失败1信息");
@@ -20,4 +20,4 @@ const q1 = new Promise((resolve,reject)=>{
        console.log(res);
    },err=>{console.log("任务2失败")})
    
- `
+ ```
