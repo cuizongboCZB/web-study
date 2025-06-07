@@ -22,7 +22,7 @@
 
 [百度](http://www.baidu.com)
 
-![图片](https://b0.bdstatic.com/c407d94023fbf1694cede49f3893320a.jpg@h_1280)
+![图片]([https://b0.bdstatic.com/c407d94023fbf1694cede49f3893320a.jpg@h_1280](https://gips0.baidu.com/it/u=838505001,1009740821&fm=3028&app=3028&f=PNG&fmt=auto&q=100&size=f254_80))
 
 ``` javascript
 
