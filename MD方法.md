@@ -1,6 +1,6 @@
 
 
-  ```jlk
+  ```javascript
 const q1 = new Promise((resolve,reject)=>{
     //    resolve("成功1数据");
        reject("失败1信息");
