@@ -13,8 +13,14 @@
      > 引用
      
      [链接](http://www.baidu.com)
+
      ![图片](http://www.baidu.com/img/baidu_jgylogo3.gif)
-      ` const q1 = new Promise((resolve,reject)=>{
+
+     `单行代码`
+   
+      ```
+      javascript
+ const q1 = new Promise((resolve,reject)=>{
     //    resolve("成功1数据");
        reject("失败1信息");
    });
@@ -33,4 +39,4 @@
        console.log(res);
    },err=>{console.log("任务2失败")})
    
-  `
+  ```
