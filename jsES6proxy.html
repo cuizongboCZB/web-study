@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //1Proxy   类函数   代理
+        //get(){}  set  delete  has  in  apply  construct
+
+        let obj = {
+            name: "小王",
+            age: 18,
+            sex: "男"
+        };
+        let p1 = new Proxy(obj, {
+            get(target, key) {  //获取  对象  属性名
+                return obj[key];
+
+            },
+            set(target, key, value) {  //设置  对象  属性名  属性值
+                obj[key] = value;
+                console.log(p1.name);
+            }
+
+        })
+        p1.name = "小王2";//控制台输出小王2
+        p1.name = "小王3";
+        p1.name = "小王4";
+
+
+
+        //module   esm（浏览器）   commonjs（nodejs）
+        // 根目录的type  属性为module importt 引入
+        //  export  导出
+
+
+
+
+        const cccc = {
+            name: "小王",
+            age: 18,
+            sex: "男"
+        };
+        const jjs = JSON.stringify(cccc);
+        console.log(jjs);
+
+    </script>
+</body>
+
+</html>

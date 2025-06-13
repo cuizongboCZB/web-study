@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS圆圈旋转</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 200px auto;
+            border-radius: 50%;
+            position: relative;
+            border: 2px solid transparent;
+            border-top-color: #a9b6df;
+            border-bottom-color: rgb(105, 172, 255);
+            border-radius: 50%;
+            animation: rotate 2s linear infinite;
+            /* 含义：动画名称 | 时长 | 速度曲线 | 无限循环 */
+
+        }
+
+        .box>div {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            background-color: rgb(111, 132, 214);
+            border-radius: 50%;
+            top: 5px;
+            left: 5px;
+        }
+
+        @keyframes rotate {
+
+            /* 定义动画名称：rotate（旋转） */
+            from {
+                /* 起始状态（0%）*/
+                transform: rotate(0deg);
+                /* 初始角度：0度 */
+            }
+
+            to {
+                /* 结束状态（100%）*/
+                transform: rotate(360deg);
+                /* 结束角度：360度（完整一圈） */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div></div>
+    </div>
+</body>
+
+</html>

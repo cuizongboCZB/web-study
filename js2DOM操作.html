@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .conn {
+            width: 100px;
+            height: 30px;
+            background-color: rgb(81, 177, 181);
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        hello
+    </div>
+    <p>默认内容</p>
+    <p class="item">默认内容</p>
+    <p>默认内容</p>
+    <p>默认内容</p>
+    <p>默认内容</p>
+    <script>
+        //1.dom 选择器 querySelector  querySelectorAll
+        //通过dom操作元素
+        var content = document.getElementById("div1");
+        console.log(content);
+        content.textContent = " 你好";
+
+
+
+        var textarr = ["chumo", "chuang", "chuangchuang", "sqwedqwe", "weqweqweqw"]
+        var p = document.getElementsByTagName("p");
+        console.log(p);
+
+        for (let i = 0; i < p.length; i++) {
+            p[i].textContent = textarr[i];
+        }
+
+        var pp = document.querySelectorAll("p");
+        console.log(pp);
+        var item = document.querySelector(".item");
+        item.textContent = "我是item";
+
+        //2.样式处理
+        var dd = document.querySelector("#div1");
+        dd.textContent = "我是div1";
+        dd.style.color = "red";
+        dd.className = "conn";
+
+        //3.文本处理
+
+        dd.innerHTML = "我是用dom操作的div1";
+
+        //4.事件处理
+        dd.addEventListener("click", function () {
+            console.log("点击了");
+        })
+        dd.addEventListener("click", function () {
+            console.log("又点击了");
+        })
+
+        //5.定时器  
+        setTimeout(function () {
+            console.log("定时器");
+        }, 2000)
+
+        var time = setInterval(function () {
+            console.log("定时器");
+        }, 2000)
+
+        setTimeout(function () {
+            clearInterval(time);//清除定时器
+        }, 6000)
+
+    </script>
+</body>
+
+</html>

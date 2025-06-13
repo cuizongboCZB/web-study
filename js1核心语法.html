@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>变量</p>
+    <p>数据类型</p>
+    <p>运算符</p>
+    <p>语句判断 循环</p>
+    <p>数组</p>
+    <p>对象</p>
+    <p>方法</p>
+    <script>
+
+        //1.变量
+
+        var a = 1;//全局变量
+        let b = 2;//局部变量
+        const c = 3; //  常量  
+
+        //2.数据类型
+        let d = 1;
+        let name = "tom";
+        let bool = true;
+        let arr = [1, 2, 3, 4, 5];
+        let obj = {
+            name: "tom",
+            age: 18
+        }
+        let mynull = null;
+        let myundefind;
+        console.log(myundefind);
+        console.log(mynull);
+
+
+        //3.运算符   =  - * / %   ++ ===  <= >=  !  && ||  !==
+        let num1 = 1 + 3;
+        console.log("hello " + name);
+        console.log(`我现在的年龄是${obj.age}岁`);
+        20 > 18 ? console.log("你年龄大于18岁") : console.log("你年龄小于18岁");
+
+        //4.语句
+        //arr：foreach ，forof   
+        // obj：for in 
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+        if (d > 10) {
+            console.log("d大于10");
+        } else {
+            console.log("d小于10");
+        }
+
+        array = ["q", "w", "e"]
+        array.forEach(element => {
+            console.log(element);
+        });
+
+        for (let i of array) {
+            console.log(i);
+        }
+
+        //for in
+        const objj = {
+            name: "tom",
+            age: 18,
+            sex: "男",
+            hobby: ["打球", "看电影", "看动漫"],
+            say: function () {
+                console.log("我一个好人");
+            }
+        }
+        for (let k in objj) {
+            console.log(k, objj[k]);
+        }
+
+
+
+        //5.函数
+
+        function getsum(start, end, fn) {
+            let sum = 0;
+            for (i = start; i <= end; i++) {
+                if (fn(i)) {
+                    sum += i;
+                }
+            } return sum
+        }
+
+        let jieguo = getsum(55, 200, function (n) {
+            if (n % 2 !== 0) {//奇数
+                return true
+            } else {
+                return false
+            }
+        })
+        console.log(jieguo);
+
+
+        //6.数组 数组操作方法查询使用
+        myarr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let sumarr = 0;
+        myarr.forEach(element => {
+            sumarr += element;
+        });
+        console.log(sumarr);
+        myarr.push(11);
+        console.log(myarr);
+
+        //7.对象
+
+        myobj = {
+            name: "tom",
+            age: 18,
+            sex: "男",
+            hobby: ["打球", "看电影", "看动漫"],
+            say: function () {
+                console.log("我是一个好人");
+            }
+        }
+        // 方法用.来调用，函数名字()来调用
+
+    </script>
+</body>
+
+</html>

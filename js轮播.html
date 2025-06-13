@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图 定时器技术</title>
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+
+         :nth-child() 匹配兄弟元素列表中元素,索引从 1 开始
+         odd  even 单数 双数zn+1
+
+
+
+        } */
+        #carousl {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            border: 1px solid red;
+
+        }
+
+        .wai {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .bt {
+            position: fixed;
+            /* 固定在视口 */
+            top: 100px;
+            z-index: 10;
+            /*层级*/
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0.5;
+            /*透明度*/
+        }
+
+        .wai .right {
+            position: fixed;
+            top: 100px;
+            left: 186px;
+
+
+        }
+
+        #carousl li {
+            width: 200px;
+            line-height: 200px;
+            position: absolute;
+            text-align: center;
+            text-shadow: 0 0 5px #111111;
+            color: aliceblue;
+            font-size: 35px;
+            opacity: 0;
+            /* 透明度*/
+            transition: opacity 1s;
+            /*动画过渡效果*/
+
+        }
+
+        /* 激活项 */
+        #carousl li.active {
+            opacity: 1;
+        }
+
+        /* 轮播项 */
+        #carousl li:nth-child(1) {
+            background-color: aqua;
+        }
+
+        #carousl li:nth-child(2) {
+            background-color: rgb(89, 0, 255);
+        }
+
+        #carousl li:nth-child(3) {
+            background-color: rgb(162, 25, 96);
+        }
+
+        #carousl li:nth-child(4) {
+            background-color: rgb(218, 154, 65);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wai">
+        <button id="shang" class="bt">
+            < </button>
+                <button id="xia" class="bt right">></button>
+                <ul id="carousl">
+                    <li class="active">春眠不觉晓</li>
+                    <li>处处闻啼鸟</li>
+                    <li>夜来风雨声</li>
+                    <li>花落知多少</li>
+                </ul>
+    </div>
+    <script>
+        // 获取 DOM 元素
+        var carousl = document.querySelector("#carousl");
+        var items = carousl.children; // 获取所有的子元素
+        var shang = document.querySelector("#shang");
+        var xia = document.querySelector("#xia");
+
+        var index = 0; // 默认选中第一项
+
+        // 切换轮播项
+        function switchCarouselItem(newIndex) {//
+            items[index].className = ""; // 移除当前项的 active 类
+            index = newIndex; // 更新索引
+            items[index].className = "active"; // 设置新项的 active 类
+        }
+
+        // 下一项点击事件处理程序
+        xia.addEventListener("click", function () {
+            var newIndex = (index + 1) % items.length; // 计算新索引
+            switchCarouselItem(newIndex); // 切换到新项
+        });
+
+        // 上一项点击事件处理程序
+        shang.addEventListener("click", function () {
+            var newIndex = (index - 1 + items.length) % items.length; // 计算新索引
+            switchCarouselItem(newIndex); // 切换到新项
+        });
+
+        // 自动播放定时器
+        let zidong = setInterval(function () {
+            xia.click(); // 触发下一项按钮点击
+        }, 3000);
+
+        // 鼠标进入时清除定时器
+        carousl.addEventListener("mouseenter", function () {
+            clearInterval(zidong); // 清除自动播放定时器
+        });
+
+        // 鼠标移出时恢复定时器
+        carousl.addEventListener("mouseleave", function () {
+            clearInterval(zidong); // 清除旧的定时器（避免重复）
+            zidong = setInterval(function () {
+                xia.click(); // 重新启动定时器
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>
